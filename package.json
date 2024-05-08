@@ -7,8 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint .",
-    "lintfix": "npx lint-staged && eslint src/**/*.ts --fix && npm run lint",
+    "lint": "eslint . --fix",
+    "lintfix": "npx lint-staged && eslint . --fix && npm run lint",
     "prepare": "husky",
     "pre-commit": "echo \"[Husky] checking for style issues and fixing them.\"",
     "update-all": "npx npm-check-updates -u"
