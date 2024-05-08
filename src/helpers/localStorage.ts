@@ -2,6 +2,9 @@ import { MMKV } from 'react-native-mmkv';
 
 export enum StoredKeys {
   colorMode = 'colorMode',
+  firstOpen = 'firstOpen',
+  accessToken = 'accessToken',
+  refreshToken = 'refreshToken',
 }
 
 const storage = new MMKV({
@@ -15,5 +18,8 @@ export const localStorage = {
   },
   getItem: (key: StoredKeys) => {
     return storage.getString(key);
+  },
+  removeItem: (key: StoredKeys) => {
+    storage.delete(key);
   },
 };
