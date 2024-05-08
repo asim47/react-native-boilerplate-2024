@@ -1,3 +1,5 @@
+import type { NativeStackScreenProps } from '@react-navigation/native-stack';
+
 export type Themes = 'dark' | 'light';
 
 export interface DarkModeHookReturn {
@@ -28,3 +30,10 @@ export interface AuthSuccessResponse {
 export interface ConfigStore {
   colorMode: Themes;
 }
+
+export type RootStackParamList = {
+  Signup: undefined;
+  Login: undefined;
+};
+
+export type ScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<RootStackParamList, T>;

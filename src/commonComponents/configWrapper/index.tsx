@@ -5,7 +5,8 @@ import { localStorage, StoredKeys } from '../../helpers/localStorage';
 import { Log } from '../../helpers/logger';
 import { useEnhancedDispatch, useEnhancedSelector } from '../../helpers/reduxHooks';
 import useIsDarkMode from '../../helpers/useIsDarkMode';
-import { setMode } from '../../store/reducers/config.reducer';
+import { setColorMode } from '../../store/reducers/config.reducer';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const ConfigWrapper: React.FC<{ children: React.ReactNode }> = (props) => {
   const dispatch = useEnhancedDispatch();
@@ -16,19 +17,21 @@ const ConfigWrapper: React.FC<{ children: React.ReactNode }> = (props) => {
     if (localStorage.getItem(StoredKeys.firstOpen) !== 'false') {
       Log('First App open: ', modeName);
       localStorage.setItem(StoredKeys.firstOpen, 'false');
-      dispatch(setMode(modeName));
+      dispatch(setColorMode(modeName));
     } else {
-      dispatch(setMode(localStorage.getItem(StoredKeys.colorMode) || modeName));
+      dispatch(setColorMode(localStorage.getItem(StoredKeys.colorMode) || modeName));
     }
   }, [modeName, dispatch]);
 
   return (
     <SafeAreaView>
-      {colorMode ? (
-        props.children
-      ) : (
-        <ActivityIndicator size={'large'} color={CONSTANTS.colors[modeName].primaryColor} />
-      )}
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        {colorMode ? (
+          props.children
+        ) : (
+          <ActivityIndicator size={'large'} color={CONSTANTS.colors[modeName].primaryColor} />
+        )}
+      </GestureHandlerRootView>
     </SafeAreaView>
   );
 };
