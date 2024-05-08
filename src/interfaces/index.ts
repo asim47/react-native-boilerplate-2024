@@ -34,6 +34,7 @@ export interface ConfigStore {
 export type RootStackParamList = {
   Signup: undefined;
   Login: undefined;
+  Home: undefined;
 };
 
 export type ScreenProps<T extends keyof RootStackParamList> = NativeStackScreenProps<RootStackParamList, T>;
