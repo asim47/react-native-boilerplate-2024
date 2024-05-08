@@ -3,7 +3,7 @@ import { localStorage, StoredKeys } from '../../helpers/localStorage';
 import { ConfigStore } from '../../interfaces';
 
 const initialState: ConfigStore = {
-  colorMode: null,
+  colorMode: 'dark',
 };
 
 export const ConfigSlice = createSlice({
@@ -11,8 +11,8 @@ export const ConfigSlice = createSlice({
   initialState,
   reducers: {
     setMode(state, action) {
-      state.colorMode = action.payload;
       localStorage.setItem(StoredKeys.colorMode, action.payload);
+      state.colorMode = action.payload;
     },
   },
 });

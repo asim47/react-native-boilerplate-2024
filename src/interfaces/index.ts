@@ -26,5 +26,5 @@ export interface AuthSuccessResponse {
 }
 
 export interface ConfigStore {
-  colorMode: Themes | null;
+  colorMode: Themes;
 }
