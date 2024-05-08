@@ -1,9 +1,6 @@
-
-
-
-export type Themes = "dark" | "light"
+export type Themes = 'dark' | 'light';
 
 export interface DarkModeHookReturn {
-    isDarkMode: boolean;
-    modeName: Themes;
+  isDarkMode: boolean;
+  modeName: Themes;
 }

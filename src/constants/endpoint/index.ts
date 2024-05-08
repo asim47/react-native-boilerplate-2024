@@ -1,3 +1,1 @@
-
-
-export const END_POINT = "https://asimbilal.com/api/v1"
+export const END_POINT = 'https://asimbilal.com/api/v1';

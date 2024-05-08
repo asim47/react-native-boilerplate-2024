@@ -1,13 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import Main from './src/Main'
+import React from 'react';
+import Main from './src/Main';
 
 const App = () => {
-  return (
-    <Main />
-  )
-}
+  return <Main />;
+};
 
-export default App
-
-const styles = StyleSheet.create({})
+export default App;
