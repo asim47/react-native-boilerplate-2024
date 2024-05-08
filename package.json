@@ -9,7 +9,7 @@
     "test": "jest",
     "lint": "eslint .",
     "lintfix": "npx lint-staged && eslint src/**/*.ts --fix && npm run lint",
-    "prepare": "husky install",
+    "prepare": "husky",
     "pre-commit": "echo \"[Husky] checking for style issues and fixing them.\"",
     "update-all": "npx npm-check-updates -u"
   },
@@ -38,5 +38,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }

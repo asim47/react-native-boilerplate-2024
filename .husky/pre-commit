@@ -5,7 +5,7 @@ npm run pre-commit
 npm run lintfix  
 git fetch
 git update-index --again
-if [ ! -z "$(git rev-list ..main)" ]
+if [ ! -z "$(git rev-list ..dev)" ]
 then
     echo "abandoning commit"
     echo "please merge from dev and try again"
