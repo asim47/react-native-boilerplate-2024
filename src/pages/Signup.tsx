@@ -7,7 +7,7 @@ const Signup: React.FC<ScreenProps<'Signup'>> = ({ navigation }) => {
 
   return (
     <View style={commonStyles.AppContainer}>
-      <Text style={{ color: 'red' }}>Signup</Text>
+      <Text style={commonStyles.redColor}>Signup</Text>
       <Pressable
         onPress={() => {
           navigation.navigate('Login');
