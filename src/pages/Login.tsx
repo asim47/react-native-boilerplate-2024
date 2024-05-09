@@ -12,7 +12,7 @@ const Login: React.FC<ScreenProps<'Login'>> = ({ navigation }) => {
 
   return (
     <View style={commonStyles.AppContainer}>
-      <Text style={{ color: 'black' }}>Login</Text>
+      <Text style={commonStyles.blackColor}>Login</Text>
       <Pressable
         onPress={() => {
           navigation.navigate('Signup');

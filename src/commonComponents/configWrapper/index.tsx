@@ -7,11 +7,13 @@ import { useEnhancedDispatch, useEnhancedSelector } from '../../helpers/reduxHoo
 import useIsDarkMode from '../../helpers/useIsDarkMode';
 import { setColorMode } from '../../store/reducers/config.reducer';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import * as Styles from '../../styles';
 
 const ConfigWrapper: React.FC<{ children: React.ReactNode }> = (props) => {
   const dispatch = useEnhancedDispatch();
   const { modeName } = useIsDarkMode();
   const colorMode = useEnhancedSelector((state) => state.config.colorMode);
+  const commonStyles = Styles.CommonStyles();
 
   useEffect(() => {
     if (localStorage.getItem(StoredKeys.firstOpen) !== 'false') {
@@ -25,7 +27,7 @@ const ConfigWrapper: React.FC<{ children: React.ReactNode }> = (props) => {
 
   return (
     <SafeAreaView>
-      <GestureHandlerRootView style={{ flex: 1 }}>
+      <GestureHandlerRootView style={commonStyles.flexStyle}>
         {colorMode ? (
           props.children
         ) : (

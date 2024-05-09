@@ -19,6 +19,9 @@ export const CommonStyles = () => {
       backgroundColor: 'green',
       marginTop: 40,
     },
+    blackColor: { color: 'black' },
+    redColor: { color: 'red' },
+    flexStyle: { flex: 1 },
   });
 };
 
