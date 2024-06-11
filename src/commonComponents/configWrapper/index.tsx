@@ -26,15 +26,15 @@ const ConfigWrapper: React.FC<{ children: React.ReactNode }> = (props) => {
   }, [modeName, dispatch]);
 
   return (
-    <SafeAreaView>
       <GestureHandlerRootView style={commonStyles.flexStyle}>
+        <SafeAreaView>
         {colorMode ? (
           props.children
         ) : (
           <ActivityIndicator size={'large'} color={CONSTANTS.colors[modeName].primaryColor} />
         )}
-      </GestureHandlerRootView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </GestureHandlerRootView>
   );
 };
 
