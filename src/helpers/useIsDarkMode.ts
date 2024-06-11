@@ -1,15 +1,22 @@
-import { View, Text, useColorScheme } from 'react-native'
-import React from 'react'
+import { useColorScheme } from 'react-native';
 import { DarkModeHookReturn } from '../interfaces';
+import { useEnhancedSelector } from './reduxHooks';
 
 const useIsDarkMode: () => DarkModeHookReturn = () => {
+  const isDarkMode = useColorScheme() === 'dark';
+  const colorMode = useEnhancedSelector((state) => state.config.colorMode);
 
-    const isDarkMode = (useColorScheme() === "dark");
-
+  if (colorMode) {
     return {
-        isDarkMode,
-        modeName: isDarkMode ? "dark" : "light"
-    }
-}
+      isDarkMode: colorMode === 'dark',
+      modeName: colorMode,
+    };
+  }
 
-export default useIsDarkMode
+  return {
+    isDarkMode,
+    modeName: isDarkMode ? 'dark' : 'light',
+  };
+};
+
+export default useIsDarkMode;

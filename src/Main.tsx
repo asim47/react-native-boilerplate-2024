@@ -1,30 +1,35 @@
-import { Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect } from 'react'
-import useIsDarkMode from './helpers/useIsDarkMode'
-import * as Styles from "./styles"
-import { localStorage, StoredKeys } from './helpers/localStorage'
+import { View } from 'react-native';
+import React from 'react';
+import * as Styles from './styles';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import { RootStackParamList } from './interfaces';
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
 const Main = () => {
-    const { modeName } = useIsDarkMode()
-    const styles = Styles.MainStyles(modeName)
+  const styles = Styles.MainStyles();
 
+  return (
+    <>
+      <View style={styles.AppContainer}>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{
+              headerShown: false,
+              animation: 'ios',
+            }}
+            initialRouteName="Login"
+          >
+            <Stack.Screen name="Login" component={Login} />
+            <Stack.Screen name="Signup" component={Signup} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </View>
+    </>
+  );
+};
 
-    useEffect(() => {
-        localStorage.setItem(StoredKeys.colorMode, modeName)
-    }, [])
-
-    return (
-        <SafeAreaView>
-            <View
-                style={styles.AppContainer}
-            >
-                <Text
-                    style={styles.welcomeText}
-                >
-                    Welcome, this is {localStorage.getItem(StoredKeys.colorMode)} mode
-                </Text>
-            </View>
-        </SafeAreaView>
-    )
-}
-
-export default Main
+export default Main;

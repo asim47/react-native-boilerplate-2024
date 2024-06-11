@@ -1,19 +1,12 @@
-import { Dimensions, StyleSheet } from "react-native";
-import { CONSTANTS } from "../constants";
-import { Themes } from "../interfaces";
+import { Dimensions, StyleSheet } from 'react-native';
 
-
-
-export const MainStyles = (theme: Themes) => StyleSheet.create({
+export const MainStyles = () => {
+  return StyleSheet.create({
     AppContainer: {
-        width: Dimensions.get("window").width,
-        height: Dimensions.get("window").height,
-        backgroundColor: CONSTANTS.colors[theme].backgroundColorPrimary
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').height,
     },
-    welcomeText:{
-        color: CONSTANTS.colors[theme].textPrimary,
-        fontSize: 20,
-        fontWeight: "bold"
-    }
-})
+  });
+};
 
+export const staticStylesMain = StyleSheet.create({});
